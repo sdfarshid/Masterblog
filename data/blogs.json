@@ -3,24 +3,27 @@
         "id": 1,
         "author": "dasdasd",
         "title": "dasdasd",
-        "content": "eqweqwe"
-    },
-    {
-        "id": 2,
-        "author": " شیسشیشس ",
-        "title": "یسشیشسی",
-        "content": "یشس یشسی ش"
+        "content": "eqweqwe",
+        "likes": 2
     },
     {
         "id": 3,
         "author": "test2",
         "title": "test",
-        "content": "adas dasd asd \r\n"
+        "content": "adas dasd asd \r\n",
+        "likes": 1
     },
     {
         "id": 4,
-        "author": "23",
-        "title": "test23",
-        "content": "dsad2asd as3d3as4da65d\r\n"
+        "author": "نویسنده",
+        "title": "تست است",
+        "content": "بیرایسش شیس شی شسیزس ششسز شسی شس",
+        "likes": 2
+    },
+    {
+        "id": 5,
+        "author": "تست ویرایش",
+        "title": "teteeqwewqewq",
+        "content": "این متن است dsdsd"
     }
 ]

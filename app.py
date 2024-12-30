@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 
 def load_json_file() -> list:
+    # Load blog posts
     try:
         with open("./data/blogs.json", "r", encoding="utf-8") as file:
             return json.load(file)
@@ -79,13 +80,14 @@ def delete(post_id: int):
 @app.route('/update/<int:post_id>', methods=['GET', 'POST'])
 def update(post_id):
     # Fetch the blog posts from the JSON file
-    post = fetch_post_by_id(post_id)
+    index_in_list, post = fetch_post_by_id(post_id)
+
     if post is None:
         # Post not found
         return "Post not found", 404
 
     if request.method == 'POST':
-        if uodate_post(post):
+        if uodate_post(index_in_list, post):
             return redirect(url_for("home"))
         else:
             return "Failed to write file."
@@ -99,12 +101,12 @@ def update(post_id):
     return load_page("update", args)
 
 
-def fetch_post_by_id(post_id: int) -> dict:
+def fetch_post_by_id(post_id: int) -> tuple:
     blog_posts = load_json_file()
-    return next((post for post in blog_posts if post["id"] == post_id), None)
+    return next(((idx, post) for idx, post in enumerate(blog_posts) if post["id"] == post_id), (None, None))
 
 
-def uodate_post(post: dict) -> bool:
+def uodate_post(index_in_list: int, post: dict) -> bool:
     updated_title = request.form.get('title', post['title'])
     updated_author = request.form.get('author', post['author'])
     updated_content = request.form.get('content', post['content'])
@@ -113,12 +115,23 @@ def uodate_post(post: dict) -> bool:
     post['content'] = updated_content
 
     blog_posts = load_json_file()
-    for idx, item in enumerate(blog_posts):
-        if item['id'] == post['id']:
-            blog_posts[idx] = post
-            break
+    blog_posts[index_in_list] = post
 
     return write_file(blog_posts)
+
+
+@app.route('/like/<int:post_id>', methods=['GET'])
+def like(post_id: int):
+    blog_posts = load_json_file()
+
+    index_in_list , post = fetch_post_by_id(post_id)
+    blog_posts[index_in_list]["likes"] = post.get("likes", 0) + 1
+
+    # Save updated posts to JSON
+    write_file(blog_posts)
+
+    # Redirect to home
+    return redirect(url_for('home'))
 
 
 if __name__ == '__main__':
