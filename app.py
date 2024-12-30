@@ -90,13 +90,8 @@ def update(post_id):
         else:
             return "Failed to write file."
 
-
-    # Update the post in the JSON file
-    # Redirect back to index
-
-    # Else, it's a GET request
-    # So display the update.html page
     args = {
+        "post_id": post_id,
         "title": post.get('title', " "),
         "author": post.get('author', " "),
         "content": post.get('content', " "),

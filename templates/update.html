@@ -29,7 +29,7 @@
             </div>
 
             <div class="login-page-form-body">
-                <form method="POST" >
+                <form action="{{ url_for('update', post_id=post_id) }}"  method="POST">
                     <div class="from-group">
                         <input  class="from-control"  name="title"
                                 value="{{ title }}" required type="text" placeholder="Title">
