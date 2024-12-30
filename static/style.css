@@ -1,0 +1,153 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F5F5F5;
+    padding: 20px;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #4F4F4F;
+}
+
+.post {
+    background-color: #FFF;
+    border: 1px solid #DDD;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+ h1 , .text-white{
+    color: #ffffff
+ }
+
+.post h2 {
+    margin-top: 0;
+}
+
+.post p {
+    margin: 10px 0;
+}
+
+
+
+body {
+  background-color: #0081b9;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.login-page-container {
+  display: flex;
+  align-items: center;
+  height: 90vh;
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+section.login-page {
+  display: flex;
+  width: 100%;
+  height: 400px;
+}
+
+section.login-page .login-page-content {
+  flex: 0 0 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #004C6D;
+  border-radius: 13px 0 0 13px;
+}
+section.login-page .login-page-content-logo  {
+  max-width: 45%;
+  height: auto;
+  object-fit: contain;
+}
+section.login-page .login-page-content-logo img {
+  width: 100%;
+  object-fit: contain;
+  color: #d8e7ff;
+}
+section.login-page .login-page-content-text {
+  color: #d8e7ff;
+  font-size: 25px;
+}
+
+
+section.login-page .login-page-form {
+  flex: 0 0 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 0 13px 13px 0;
+
+}
+
+section.login-page .login-page-form  .login-page-form-header {
+  color: #004C6D;
+}
+
+section.login-page .login-page-form  .login-page-form-body {
+  max-width: 100%;
+  /* padding: 29px; */
+  /* margin-left: 42px; */
+  width: 85%;
+}
+
+section.login-page .login-page-form  .from-group {
+  margin-bottom: 15px;
+  max-width: 100%;
+}
+section.login-page .login-page-form  .from-control  {
+  width: 100%;
+  border: solid 1px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  line-height: 30px;
+  padding: 2px;
+}
+section.login-page .login-page-form  .from-control::placeholder {
+  padding: 8px;
+  font-size: 18px;
+  color: #bcc1c4;
+}
+
+section.login-page .login-page-form  .from-action {
+  width: 100%;
+  border: solid 1px;
+  border-radius: 4px;
+  background-color: #004C6D;
+  color: #ffffff;
+  height: 40px;
+  font-size: 17px;
+  line-height: inherit;
+}
+
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media(max-width:768px) {
+  section.login-page{
+    flex-direction: column;
+  }
+  section.login-page .login-page-content-logo{
+    max-width: 35%;
+  }
+  section.login-page .login-page-form-forget {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+}
+

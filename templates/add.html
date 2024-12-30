@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Flask Blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+
+<div class="login-page-container">
+    <section class="login-page">
+        <div class="login-page-content">
+
+            <div class="login-page-content-logo">
+                <img src="{{ url_for('static', filename='blogging.webp')}}" alt="Create Blog">
+            </div>
+            <div class="login-page-content-text" >
+                <span>Write new  blog</span>
+            </div>
+
+
+        </div>
+        <div class="login-page-form">
+
+            <div class="login-page-form-header">
+                <h1>Add  Blog</h1>
+            </div>
+
+            <div class="login-page-form-body">
+                <form method="POST" >
+                    <div class="from-group">
+                        <input  class="from-control"  name="title" required type="text" placeholder="Title">
+                    </div>
+                    <div class="from-group">
+                        <input class="from-control " id="Author" name="author" required
+                               type="text"  placeholder="author">
+                    </div>
+                    <div class="from-group">
+                        <textarea  class="from-control " placeholder="content" id="" name="content" ></textarea>
+                    </div>
+                    <div class="from-group ">
+                        <button class="from-action" > Add  </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="login-page-form-forget">
+                <span>Back to </span>
+                <a href="{{ url_for('home') }}">Home Page</a>
+            </div>
+
+
+        </div>
+    </section>
+
+</div>
+
+
+
+</body>
+</html>
