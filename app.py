@@ -28,6 +28,15 @@ def hello_world():
     return render_template("index.html", posts=blog_posts)
 
 
+@app.route('/add', methods=['GET', 'POST'])
+def add():
+    if request.method == 'POST':
+        store_new_post()
+        return redirect(url_for('home'))
+
+    return render_template('add.html')
+
+
 def store_new_post():
     title = request.form.get('title', " ")
     author = request.form.get('author', " ")
@@ -48,14 +57,12 @@ def store_new_post():
     write_file(blog_posts)
 
 
-
-@app.route('/add', methods=['GET', 'POST'])
-def add():
-    if request.method == 'POST':
-        store_new_post()
-        return redirect(url_for('home'))
-
-    return render_template('add.html')
+@app.route("/delete/<int:post_id>", endpoint="delete", methods=["GET"])
+def delete(post_id: int):
+    blog_posts = load_json_file()
+    new_blog = [post for post in blog_posts if post["id"] != post_id]
+    write_file(new_blog)
+    return redirect(url_for("home"))
 
 
 if __name__ == '__main__':
